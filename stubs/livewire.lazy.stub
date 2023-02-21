@@ -1,0 +1,7 @@
+<div wire:init="setLoadingState()">
+  @if($readyToLoad)
+    [quote]
+  @else
+  <x-loading />
+  @endif
+</div>

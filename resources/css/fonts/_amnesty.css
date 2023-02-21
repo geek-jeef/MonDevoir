@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldCondTwentyObl.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldCondTwentyObl.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldTwoOblique.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldTwoOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT Extended';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldExtended.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldExtended.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldCondTwenty.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldCondTwenty.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldTwo.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldTwo.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-BoldOblique.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-BoldOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-Bold.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('../fonts/amnesty/TradeGothicLT-CondEighteenObl.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-CondEighteenObl.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('../fonts/amnesty/TradeGothicLT-CondEighteen.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-CondEighteen.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-LightOblique.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-LightOblique.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT Extended';
+    src: url('../fonts/amnesty/TradeGothicLT-Extended.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-Extended.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-Oblique.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-Oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT-Light.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('../fonts/amnesty/TradeGothicLT.woff') format('woff'),
+        url('../fonts/amnesty/TradeGothicLT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,982 @@
+[
+    {
+        "id": 1,
+        "value": "afghane",
+        "description": "Afghanistan"
+    },
+    {
+        "id": 2,
+        "value": "sudafricaine",
+        "description": "Afrique du Sud"
+    },
+    {
+        "id": 3,
+        "value": "albanaise",
+        "description": "Albanie"
+    },
+    {
+        "id": 4,
+        "value": "algérienne",
+        "description": "Algérie"
+    },
+    {
+        "id": 5,
+        "value": "allemande",
+        "description": "Allemagne"
+    },
+    {
+        "id": 6,
+        "value": "andorrane",
+        "description": "Andorre"
+    },
+    {
+        "id": 7,
+        "value": "angolaise",
+        "description": "Angola"
+    },
+    {
+        "id": 8,
+        "value": "antiguayenne",
+        "description": "Antigua-et-Barbuda"
+    },
+    {
+        "id": 9,
+        "value": "saoudienne",
+        "description": "Arabie saoudite"
+    },
+    {
+        "id": 10,
+        "value": "argentine",
+        "description": "Argentine"
+    },
+    {
+        "id": 11,
+        "value": "arménienne",
+        "description": "Arménie"
+    },
+    {
+        "id": 12,
+        "value": "australienne",
+        "description": "Australie"
+    },
+    {
+        "id": 13,
+        "value": "autrichienne",
+        "description": "Autriche"
+    },
+    {
+        "id": 14,
+        "value": "azerbaïdjanaise",
+        "description": "Azerbaïdjan"
+    },
+    {
+        "id": 15,
+        "value": "bahaméenne",
+        "description": "Bahamas"
+    },
+    {
+        "id": 16,
+        "value": "bahreïnienne",
+        "description": "Bahreïn"
+    },
+    {
+        "id": 17,
+        "value": "bangladaise",
+        "description": "Bangladesh"
+    },
+    {
+        "id": 18,
+        "value": "barbadienne",
+        "description": "Barbade"
+    },
+    {
+        "id": 19,
+        "value": "belge",
+        "description": "Belgique"
+    },
+    {
+        "id": 20,
+        "value": "bélizienne",
+        "description": "Belize"
+    },
+    {
+        "id": 22,
+        "value": "bhoutanaise",
+        "description": "Bhoutan"
+    },
+    {
+        "id": 24,
+        "value": "birmane",
+        "description": "Birmanie"
+    },
+    {
+        "id": 23,
+        "value": "biélorusse",
+        "description": "Biélorussie"
+    },
+    {
+        "id": 25,
+        "value": "bolivienne",
+        "description": "Bolivie"
+    },
+    {
+        "id": 26,
+        "value": "bosnienne",
+        "description": "Bosnie-Herzégovine"
+    },
+    {
+        "id": 27,
+        "value": "botswanaise",
+        "description": "Botswana"
+    },
+    {
+        "id": 29,
+        "value": "brunéienne",
+        "description": "Brunei"
+    },
+    {
+        "id": 28,
+        "value": "brésilienne",
+        "description": "Brésil"
+    },
+    {
+        "id": 30,
+        "value": "bulgare",
+        "description": "Bulgarie"
+    },
+    {
+        "id": 31,
+        "value": "burkinabé",
+        "description": "Burkina"
+    },
+    {
+        "id": 32,
+        "value": "burundaise",
+        "description": "Burundi"
+    },
+    {
+        "id": 21,
+        "value": "béninoise",
+        "description": "Bénin"
+    },
+    {
+        "id": 33,
+        "value": "cambodgienne",
+        "description": "Cambodge"
+    },
+    {
+        "id": 34,
+        "value": "camerounaise",
+        "description": "Cameroun"
+    },
+    {
+        "id": 35,
+        "value": "canadienne",
+        "description": "Canada"
+    },
+    {
+        "id": 36,
+        "value": "cap-verdienne",
+        "description": "Cap-Vert"
+    },
+    {
+        "id": 144,
+        "value": "centrafricaine",
+        "description": "Centrafrique"
+    },
+    {
+        "id": 37,
+        "value": "chilienne",
+        "description": "Chili"
+    },
+    {
+        "id": 38,
+        "value": "chinoise",
+        "description": "Chine"
+    },
+    {
+        "id": 39,
+        "value": "chypriote",
+        "description": "Chypre"
+    },
+    {
+        "id": 40,
+        "value": "colombienne",
+        "description": "Colombie"
+    },
+    {
+        "id": 41,
+        "value": "comorienne",
+        "description": "Comores"
+    },
+    {
+        "id": 42,
+        "value": "congolaise",
+        "description": "Congo"
+    },
+    {
+        "id": 43,
+        "value": "nord-coréenne",
+        "description": "Corée du Nord"
+    },
+    {
+        "id": 44,
+        "value": "sud-coréenne",
+        "description": "Corée du Sud"
+    },
+    {
+        "id": 45,
+        "value": "costaricienne",
+        "description": "Costa Rica"
+    },
+    {
+        "id": 47,
+        "value": "croate",
+        "description": "Croatie"
+    },
+    {
+        "id": 48,
+        "value": "cubaine",
+        "description": "Cuba"
+    },
+    {
+        "id": 46,
+        "value": "ivoirienne",
+        "description": "Côte d'Ivoire"
+    },
+    {
+        "id": 49,
+        "value": "danoise",
+        "description": "Danemark"
+    },
+    {
+        "id": 50,
+        "value": "djiboutienne",
+        "description": "Djibouti"
+    },
+    {
+        "id": 51,
+        "value": "dominiquaise",
+        "description": "Dominique"
+    },
+    {
+        "id": 52,
+        "value": "egyptienne",
+        "description": "Egypte"
+    },
+    {
+        "id": 53,
+        "value": "emirienne",
+        "description": "Emirats arabes unis"
+    },
+    {
+        "id": 54,
+        "value": "equatorienne",
+        "description": "Equateur"
+    },
+    {
+        "id": 55,
+        "value": "erythréenne",
+        "description": "Erythrée"
+    },
+    {
+        "id": 56,
+        "value": "espagnole",
+        "description": "Espagne"
+    },
+    {
+        "id": 57,
+        "value": "estonienne",
+        "description": "Estonie"
+    },
+    {
+        "id": 58,
+        "value": "américaine",
+        "description": "Etats-Unis"
+    },
+    {
+        "id": 59,
+        "value": "ethiopienne",
+        "description": "Ethiopie"
+    },
+    {
+        "id": 60,
+        "value": "fidjienne",
+        "description": "Fidji"
+    },
+    {
+        "id": 61,
+        "value": "finlandaise",
+        "description": "Finlande"
+    },
+    {
+        "id": 62,
+        "value": "française",
+        "description": "France"
+    },
+    {
+        "id": 63,
+        "value": "gabonaise",
+        "description": "Gabon"
+    },
+    {
+        "id": 64,
+        "value": "gambienne",
+        "description": "Gambie"
+    },
+    {
+        "id": 66,
+        "value": "ghanéenne",
+        "description": "Ghana"
+    },
+    {
+        "id": 68,
+        "value": "grenadienne",
+        "description": "Grenade"
+    },
+    {
+        "id": 67,
+        "value": "grecque",
+        "description": "Grèce"
+    },
+    {
+        "id": 69,
+        "value": "guatémaltèque",
+        "description": "Guatemala"
+    },
+    {
+        "id": 70,
+        "value": "guinéenne",
+        "description": "Guinée"
+    },
+    {
+        "id": 71,
+        "value": "equatoguinéenne",
+        "description": "Guinée équatoriale"
+    },
+    {
+        "id": 72,
+        "value": "bissaoguinéenne",
+        "description": "Guinée-Bissao"
+    },
+    {
+        "id": 73,
+        "value": "guyanienne",
+        "description": "Guyana"
+    },
+    {
+        "id": 65,
+        "value": "géorgienne",
+        "description": "Géorgie"
+    },
+    {
+        "id": 74,
+        "value": "haïtienne",
+        "description": "Haïti"
+    },
+    {
+        "id": 75,
+        "value": "hondurienne",
+        "description": "Honduras"
+    },
+    {
+        "id": 77,
+        "value": "hongroise",
+        "description": "Hongrie"
+    },
+    {
+        "id": 79,
+        "value": "indienne",
+        "description": "Inde"
+    },
+    {
+        "id": 80,
+        "value": "indonésienne",
+        "description": "Indonésie"
+    },
+    {
+        "id": 81,
+        "value": "irakienne",
+        "description": "Irak"
+    },
+    {
+        "id": 82,
+        "value": "iranienne",
+        "description": "Iran"
+    },
+    {
+        "id": 83,
+        "value": "irlandaise",
+        "description": "Irlande"
+    },
+    {
+        "id": 84,
+        "value": "islandaise",
+        "description": "Islande"
+    },
+    {
+        "id": 85,
+        "value": "israélienne",
+        "description": "Israël"
+    },
+    {
+        "id": 86,
+        "value": "italienne",
+        "description": "Italie"
+    },
+    {
+        "id": 87,
+        "value": "jamaïquaine",
+        "description": "Jamaïque"
+    },
+    {
+        "id": 88,
+        "value": "japonaise",
+        "description": "Japon"
+    },
+    {
+        "id": 90,
+        "value": "jordanienne",
+        "description": "Jordanie"
+    },
+    {
+        "id": 89,
+        "value": "palestinienne",
+        "description": "Jérusalem - Territoires palestiniens"
+    },
+    {
+        "id": 91,
+        "value": "kazakhstanais",
+        "description": "Kazakhstan"
+    },
+    {
+        "id": 92,
+        "value": "kényane",
+        "description": "Kenya"
+    },
+    {
+        "id": 93,
+        "value": "kirghize",
+        "description": "Kirghizstan"
+    },
+    {
+        "id": 94,
+        "value": "kiribatienne",
+        "description": "Kiribati"
+    },
+    {
+        "id": 198,
+        "value": "kosovare",
+        "description": "Kosovo"
+    },
+    {
+        "id": 95,
+        "value": "koweïtienne",
+        "description": "Koweït"
+    },
+    {
+        "id": 96,
+        "value": "laotienne",
+        "description": "Laos"
+    },
+    {
+        "id": 97,
+        "value": "lesothienne",
+        "description": "Lesotho"
+    },
+    {
+        "id": 98,
+        "value": "lettone",
+        "description": "Lettonie"
+    },
+    {
+        "id": 99,
+        "value": "libanaise",
+        "description": "Liban"
+    },
+    {
+        "id": 100,
+        "value": "libérienne",
+        "description": "Liberia"
+    },
+    {
+        "id": 101,
+        "value": "libyenne",
+        "description": "Libye"
+    },
+    {
+        "id": 102,
+        "value": "liechtensteinoise",
+        "description": "Liechtenstein"
+    },
+    {
+        "id": 103,
+        "value": "lituanienne",
+        "description": "Lituanie"
+    },
+    {
+        "id": 104,
+        "value": "luxembourgeoise",
+        "description": "Luxembourg"
+    },
+    {
+        "id": 105,
+        "value": "macédonienne",
+        "description": "Macédoine"
+    },
+    {
+        "id": 106,
+        "value": "malgache",
+        "description": "Madagascar"
+    },
+    {
+        "id": 107,
+        "value": "malaisienne",
+        "description": "Malaisie"
+    },
+    {
+        "id": 108,
+        "value": "malawienne",
+        "description": "Malawi"
+    },
+    {
+        "id": 109,
+        "value": "maldivienne",
+        "description": "Maldives"
+    },
+    {
+        "id": 110,
+        "value": "malienne",
+        "description": "Mali"
+    },
+    {
+        "id": 111,
+        "value": "maltaise",
+        "description": "Malte"
+    },
+    {
+        "id": 112,
+        "value": "marocaine",
+        "description": "Maroc"
+    },
+    {
+        "id": 113,
+        "value": "marshallaise",
+        "description": "Marshall"
+    },
+    {
+        "id": 114,
+        "value": "mauricienne",
+        "description": "Maurice"
+    },
+    {
+        "id": 115,
+        "value": "mauritanienne",
+        "description": "Mauritanie"
+    },
+    {
+        "id": 116,
+        "value": "mexicaine",
+        "description": "Mexique"
+    },
+    {
+        "id": 117,
+        "value": "micronésienne",
+        "description": "Micronésie"
+    },
+    {
+        "id": 118,
+        "value": "moldave",
+        "description": "Moldavie"
+    },
+    {
+        "id": 119,
+        "value": "monégasque",
+        "description": "Monaco"
+    },
+    {
+        "id": 120,
+        "value": "mongole",
+        "description": "Mongolie"
+    },
+    {
+        "id": 197,
+        "value": "monténégrine",
+        "description": "Monténégro"
+    },
+    {
+        "id": 121,
+        "value": "mozambicaine",
+        "description": "Mozambique"
+    },
+    {
+        "id": 122,
+        "value": "namibienne",
+        "description": "Namibie"
+    },
+    {
+        "id": 123,
+        "value": "nauruane",
+        "description": "Nauru"
+    },
+    {
+        "id": 125,
+        "value": "nicaraguayenne",
+        "description": "Nicaragua"
+    },
+    {
+        "id": 126,
+        "value": "nigérienne",
+        "description": "Niger"
+    },
+    {
+        "id": 127,
+        "value": "nigériane",
+        "description": "Nigeria"
+    },
+    {
+        "id": 128,
+        "value": "norvégienne",
+        "description": "Norvège"
+    },
+    {
+        "id": 129,
+        "value": "néo-zélandaise",
+        "description": "Nouvelle-Zélande"
+    },
+    {
+        "id": 124,
+        "value": "népalaise",
+        "description": "Népal"
+    },
+    {
+        "id": 130,
+        "value": "omanaise",
+        "description": "Oman"
+    },
+    {
+        "id": 131,
+        "value": "ougandaise",
+        "description": "Ouganda"
+    },
+    {
+        "id": 132,
+        "value": "ouzbèke",
+        "description": "Ouzbékistan"
+    },
+    {
+        "id": 133,
+        "value": "pakistanaise",
+        "description": "Pakistan"
+    },
+    {
+        "id": 134,
+        "value": "palaoise",
+        "description": "Palaos"
+    },
+    {
+        "id": 135,
+        "value": "panaméenne",
+        "description": "Panama"
+    },
+    {
+        "id": 136,
+        "value": "papouasienne",
+        "description": "Papouasie-Nouvelle-Guinée"
+    },
+    {
+        "id": 137,
+        "value": "paraguayenne",
+        "description": "Paraguay"
+    },
+    {
+        "id": 138,
+        "value": "néerlandaise",
+        "description": "Pays-Bas"
+    },
+    {
+        "id": 140,
+        "value": "philippine",
+        "description": "Philippines"
+    },
+    {
+        "id": 141,
+        "value": "polonaise",
+        "description": "Pologne"
+    },
+    {
+        "id": 142,
+        "value": "portugaise",
+        "description": "Portugal"
+    },
+    {
+        "id": 139,
+        "value": "péruvienne",
+        "description": "Pérou"
+    },
+    {
+        "id": 143,
+        "value": "qatarienne",
+        "description": "Qatar"
+    },
+    {
+        "id": 148,
+        "value": "roumaine",
+        "description": "Roumanie"
+    },
+    {
+        "id": 149,
+        "value": "britannique",
+        "description": "Royaume-Uni"
+    },
+    {
+        "id": 150,
+        "value": "russe",
+        "description": "Russie"
+    },
+    {
+        "id": 151,
+        "value": "rwandaise",
+        "description": "Rwanda"
+    },
+    {
+        "id": 146,
+        "value": "dominicaine",
+        "description": "République dominicaine"
+    },
+    {
+        "id": 145,
+        "value": "congolaise (RDC)",
+        "description": "République démocratique du Congo"
+    },
+    {
+        "id": 147,
+        "value": "tchèque",
+        "description": "République tchèque"
+    },
+    {
+        "id": 152,
+        "value": "christophienne",
+        "description": "Saint-Christophe-et-Niévès"
+    },
+    {
+        "id": 154,
+        "value": "marinaise",
+        "description": "Saint-Marin"
+    },
+    {
+        "id": 155,
+        "value": null,
+        "description": "Saint-Siège"
+    },
+    {
+        "id": 156,
+        "value": "vincentaise",
+        "description": "Saint-Vincent-et-les Grenadines"
+    },
+    {
+        "id": 153,
+        "value": "lucienne",
+        "description": "Sainte-Lucie"
+    },
+    {
+        "id": 157,
+        "value": "salomonaise",
+        "description": "Salomon"
+    },
+    {
+        "id": 158,
+        "value": "salvadorienne",
+        "description": "Salvador"
+    },
+    {
+        "id": 159,
+        "value": "samoene",
+        "description": "Samoa"
+    },
+    {
+        "id": 160,
+        "value": "santoméenne",
+        "description": "Sao Tomé-et-Principe"
+    },
+    {
+        "id": 162,
+        "value": "serbe",
+        "description": "Serbie"
+    },
+    {
+        "id": 163,
+        "value": "seychelloise",
+        "description": "Seychelles"
+    },
+    {
+        "id": 164,
+        "value": "sierraléonaise",
+        "description": "Sierra Leone"
+    },
+    {
+        "id": 165,
+        "value": "singapourienne",
+        "description": "Singapour"
+    },
+    {
+        "id": 166,
+        "value": "slovaque",
+        "description": "Slovaquie"
+    },
+    {
+        "id": 167,
+        "value": "slovène",
+        "description": "Slovénie"
+    },
+    {
+        "id": 168,
+        "value": "somalienne",
+        "description": "Somalie"
+    },
+    {
+        "id": 169,
+        "value": "soudanaise",
+        "description": "Soudan"
+    },
+    {
+        "id": 170,
+        "value": "srilankaise",
+        "description": "Sri Lanka"
+    },
+    {
+        "id": 172,
+        "value": "suisse",
+        "description": "Suisse"
+    },
+    {
+        "id": 173,
+        "value": "surinamaise",
+        "description": "Suriname"
+    },
+    {
+        "id": 171,
+        "value": "suédoise",
+        "description": "Suède"
+    },
+    {
+        "id": 174,
+        "value": "swazie",
+        "description": "Swaziland"
+    },
+    {
+        "id": 175,
+        "value": "syrienne",
+        "description": "Syrie"
+    },
+    {
+        "id": 161,
+        "value": "sénégalaise",
+        "description": "Sénégal"
+    },
+    {
+        "id": 176,
+        "value": "tadjike",
+        "description": "Tadjikistan"
+    },
+    {
+        "id": 178,
+        "value": "tanzanienne",
+        "description": "Tanzanie"
+    },
+    {
+        "id": 177,
+        "value": "taïwanaise",
+        "description": "Taïwan"
+    },
+    {
+        "id": 179,
+        "value": "tchadienne",
+        "description": "Tchad"
+    },
+    {
+        "id": 180,
+        "value": "thaïlandaise",
+        "description": "Thaïlande"
+    },
+    {
+        "id": 181,
+        "value": "timoraise",
+        "description": "Timor oriental"
+    },
+    {
+        "id": 182,
+        "value": "togolaise",
+        "description": "Togo"
+    },
+    {
+        "id": 183,
+        "value": "tongienne",
+        "description": "Tonga"
+    },
+    {
+        "id": 184,
+        "value": "trinidadienne",
+        "description": "Trinité-et-Tobago"
+    },
+    {
+        "id": 185,
+        "value": "tunisienne",
+        "description": "Tunisie"
+    },
+    {
+        "id": 186,
+        "value": "turkmène",
+        "description": "Turkménistan"
+    },
+    {
+        "id": 187,
+        "value": "turque",
+        "description": "Turquie"
+    },
+    {
+        "id": 188,
+        "value": "tuvaluane",
+        "description": "Tuvalu"
+    },
+    {
+        "id": 189,
+        "value": "ukrainienne",
+        "description": "Ukraine"
+    },
+    {
+        "id": 190,
+        "value": "uruguayenne",
+        "description": "Uruguay"
+    },
+    {
+        "id": 191,
+        "value": "vanuataise",
+        "description": "Vanuatu"
+    },
+    {
+        "id": 192,
+        "value": "vénézuélienne",
+        "description": "Venezuela"
+    },
+    {
+        "id": 193,
+        "value": "vietnamienne",
+        "description": "Viêt Nam"
+    },
+    {
+        "id": 194,
+        "value": "yéménite",
+        "description": "Yémen"
+    },
+    {
+        "id": 195,
+        "value": "zambienne",
+        "description": "Zambie"
+    },
+    {
+        "id": 196,
+        "value": "zimbabwéenne",
+        "description": "Zimbabwe"
+    }
+]
