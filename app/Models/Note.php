@@ -82,16 +82,16 @@ class Note extends Model
             case 1:
             case 2:
             case 3:
-                $observation = "Nul";
+                $observation = "Très Faible";
                 break;
             case 4:
             case 5:
-                $observation = "Mediocre";
+                $observation = "Faible";
 
                 break;
             case 6:
             case 7:
-                $observation = "Faible";
+                $observation = "Très Insuffisant";
 
                 break;
             case 8:
@@ -115,16 +115,11 @@ class Note extends Model
 
                 break;
             case 16:
-             case 17:
-                $observation = "Très Bien";
-
-                break;
+            case 17:
             case 18:
             case 19:
-                $observation = "Excellent Travail";
-                break;
             case 20:
-               $observation = "Parfait !";
+               $observation = "Très Bien";
                 break;
 
               default:
