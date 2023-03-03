@@ -187,15 +187,15 @@ class SideMenu
                         ],
                         'title' => 'Compositions'
                     ],
-                    /*'resultats' => [
+                    'examen_blanc' => [
                         'icon' => '',
-                        'route_name' => 'resultats',
+                        'route_name' => 'examen_blanc',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Resultats'
+                        'title' => 'Examen Blanc'
                     ],
-                    'notes.resultats.merite' => [
+                    /*'notes.resultats.merite' => [
                         'icon' => '',
                         //'route_name' => '',
                         'params' => [
