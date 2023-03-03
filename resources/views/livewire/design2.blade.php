@@ -5096,7 +5096,7 @@
 
 
 @section('script')
-    <script src="{{ mix('dist/js/ckeditor-classic.js') }}"></script>
+    {{--<script src="{{ mix('dist/js/ckeditor-classic.js') }}"></script>--}}
 @endsection
 
 </section>
