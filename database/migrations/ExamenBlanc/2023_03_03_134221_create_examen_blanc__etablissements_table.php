@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('examen_blanc__etablissements', function (Blueprint $table) {
             $table->id();
+            $table->string('nom_etablissement');
+            $table->string('nom_etablissement_court');
+            $table->json('responsable')->nullable();
+            $table->json('data')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->userstamps();
         });
     }
 

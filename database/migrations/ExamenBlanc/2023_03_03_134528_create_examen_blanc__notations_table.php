@@ -15,7 +15,20 @@ return new class extends Migration
     {
         Schema::create('examen_blanc__notations', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedInteger('notable_id');
+            $table->string('notable_type');
+
+            $table->unsignedInteger('eleve_id');
+            $table->unsignedInteger('matiere_id');
+            $table->unsignedInteger('examen_id');
+            $table->unsignedInteger('annee_academique_id');
+            
+            $table->json('data')->nullable();
             $table->timestamps();
+            $table->userstamps();
+            $table->softDeletes();
+
         });
     }
 

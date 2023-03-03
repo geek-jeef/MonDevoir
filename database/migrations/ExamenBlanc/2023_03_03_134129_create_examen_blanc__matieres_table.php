@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('examen_blanc__matieres', function (Blueprint $table) {
             $table->id();
+            $table->string('nom_matiere');
+            $table->string('nom_matiere_court');
+            $table->string('code')->nullable();
+            $table->unsignedTinyInteger('coeficient')->default(2);
+            $table->enum('type', [1,2,3])->default(1);
+            $table->unsignedInteger('examen_id');
+            $table->boolean('active')->default(true);
+            $table->json('data')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->userstamps();
         });
     }
 
