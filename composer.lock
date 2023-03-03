@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cbbfdf7855faeab17677a5418f6a7a3",
+    "content-hash": "b2314f45249515d2d3e59881aca7457c",
     "packages": [
         {
             "name": "ahuseiny/laravel-userstamps",
@@ -1298,12 +1298,85 @@
             "time": "2022-02-20T15:07:15+00:00"
         },
         {
+            "name": "geekjeef/laravel-medialibrary-pro",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/media-library-custom",
+                "reference": "0431d9a4264199be3b4d8428537d518b458b3312"
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/validation": "^9.0",
+                "php": "^8.0",
+                "spatie/laravel-medialibrary": "^10.2",
+                "symfony/mime": "^6.0"
+            },
+            "require-dev": {
+                "illuminate/support": "^9.0",
+                "livewire/livewire": "^2.10",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.20",
+                "symfony/var-dumper": "^6.0"
+            },
+            "suggest": {
+                "livewire/livewire": "Allow uploads without using a front end framework"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\MediaLibraryPro\\MediaLibraryProServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\MediaLibraryPro\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\MediaLibraryPro\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle media in a Laravel app",
+            "homepage": "https://github.com/spatie/laravel-medialibrary-pro",
+            "keywords": [
+                "laravel-medialibrary-pro",
+                "spatie"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "geekjeef/livewire-wizard",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/livewire-wizard-custom",
-                "reference": "b90d34cdd3b26c9498bf792df9076174f7d6567f"
+                "reference": "8d5fca282169d3ed596c2b4e9b58d793a759e822"
             },
             "require": {
                 "geekjeef/wireui": "@dev",
@@ -1352,11 +1425,11 @@
         },
         {
             "name": "geekjeef/wireui",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/wireui-custom",
-                "reference": "75c38c33c380c89e3b3086b8cabae24d6a3f65b0"
+                "reference": "0d8358ef7e7c0bd7efb85ba9f026db477ae63345"
             },
             "require": {
                 "laravel/framework": "^8.83|^9.16",
@@ -11797,6 +11870,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "geekjeef/laravel-medialibrary-pro": 20,
         "geekjeef/livewire-wizard": 20,
         "geekjeef/wireui": 20
     },

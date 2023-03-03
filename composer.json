@@ -10,6 +10,7 @@
         "asantibanez/livewire-select": "^2.1",
         "dipeshsukhia/laravel-html-minify": "^2.0",
         "dirape/token": "^2.3",
+        "geekjeef/laravel-medialibrary-pro": "@dev",
         "geekjeef/livewire-wizard": "@dev",
         "geekjeef/wireui": "@dev",
         "guzzlehttp/guzzle": "^7.4",
@@ -50,6 +51,11 @@
         {
             "type": "path",
             "url": "packages/livewire-wizard-custom"
+        }
+        ,
+        {
+            "type": "path",
+            "url": "packages/media-library-custom"
         }
     ],
     "autoload": {

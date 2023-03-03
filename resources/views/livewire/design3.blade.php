@@ -9316,11 +9316,12 @@
 
 
 @section('script')
+    {{--
     <script src="{{ mix('dist/js/ckeditor-classic.js') }}"></script>
     <script src="{{ mix('dist/js/ckeditor-inline.js') }}"></script>
     <script src="{{ mix('dist/js/ckeditor-balloon.js') }}"></script>
     <script src="{{ mix('dist/js/ckeditor-balloon-block.js') }}"></script>
-    <script src="{{ mix('dist/js/ckeditor-document.js') }}"></script>
+    <script src="{{ mix('dist/js/ckeditor-document.js') }}"></script>--}}
 
 
 @endsection
