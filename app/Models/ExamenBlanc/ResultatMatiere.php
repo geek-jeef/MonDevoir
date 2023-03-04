@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ResultatMatiere extends Model
 {
     use HasFactory;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
+    use \Staudenmeir\EloquentEagerLimit\HasEagerLimit;
     /**
      * The table associated with the model.
      *

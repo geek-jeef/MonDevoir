@@ -10,6 +10,7 @@
   @yield('head')
   <wireui:styles />
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}" />
+  <link rel="stylesheet" href="{{ asset('dist/css/spatie.css') }}" />
   @livewireStyles
   <style type="text/css">
       [x-cloak] {

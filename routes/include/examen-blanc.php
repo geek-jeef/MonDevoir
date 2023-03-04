@@ -19,7 +19,7 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/examen-blanc',ExamensBlanc::class)->name('examen_blanc');
-    Route::get('/examen-blanc/{blanc}',ShowExamenBlanc::class)->name('examen_blanc.show');
+    Route::get('/examen-blanc/{examen}',ShowExamenBlanc::class)->name('examen_blanc.show');
 
     /*Route::get('/examens',Examens::class)->name('examens');
     Route::get('/examen/{examen}',ShowExamen::class)->name('examen.show');

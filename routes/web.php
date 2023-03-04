@@ -82,3 +82,4 @@ require __DIR__.'/include/finance.php';
 require __DIR__.'/include/helpers.php';
 require __DIR__.'/include/rapport.php';
 require __DIR__.'/include/examen-blanc.php';
+Route::mediaLibrary();
