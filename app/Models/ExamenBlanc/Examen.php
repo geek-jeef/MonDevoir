@@ -38,6 +38,7 @@ class Examen extends Model
     }
 
 
+
     public function matieres()
     {
         return  $this->hasMany(Matiere::class,'examen_id');

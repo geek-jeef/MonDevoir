@@ -34,22 +34,24 @@
     <div class="wrapper-box">
       <div class="flex justify-between box w-full p-5 bg-slate-100 gap-4">
         <div>
-          <livewire:widget.picker.cycle-classe-salle-picker   eventToFired="update-liste-data" />
+          <livewire:widget.picker.cycle-classe-salle-picker   eventToFired="getDataFromSalle" />
         </div>
-        @if($salle)
         <div class="self-end ">
-          <form wire:submit.prevent="generate" class="flex gap-2">
-            <div class="self-end">
-              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Choisir un Fichier (Excel, CSV)</label>
-              <input wire:model.defer="excel_file" class="block w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-            </div>
-            <div class="self-end">
-              <button class="btn btn-primary" type="submit" >Importer</button>
+          <form action="#" wire:submit.prevent="importFromExcel" class="flex gap-2" x-data="{ files: null }">
+            <div class="self-end flex">
+              <button type="reset" @click="files = null" class="btn btn-sm bg-gray-300 text-gray-800 rounded self-end mr-2	">Reset</button>
+              <div>
+                <label class="bg-white dark:bg-dark border-2 border-gray-200 p-3  w-92 block rounded cursor-pointer mr-2" for="customFile2">
+                  <input type="file" wire:model.defer="excel_file" class="sr-only" id="customFile2" x-on:change="files = Object.values($event.target.files)">
+                  <span x-text="files ? files.map(file => file.name).join(', ') : 'Choisir un fichier | XLSX, CSV, TSV, ODS | &lt; 4.00MB'"></span>
+                </label>
+                <x-errors class="mt-3"/>
+              </div>
+              <button class="btn btn-primary self-end" type="submit" >Importer</button>
             </div>
           </form>
-
         </div>
-        @endif
+
         <div class="self-end">
           <div class="intro-y flex flex-col-reverse sm:flex-row items-center">
               <div class="inbox-filter dropdown .absolute inset-y-0 mr-3 right-0 flex items-center" data-tw-placement="bottom-start">
@@ -120,31 +122,6 @@
     <div class="intro-y .module box overflow-hidden mt-5 p-4 print:m-0 print:shadow-none" @if($paysage) style="width: 29.6cm; min-height: 20.9cm;" @else style="width: 20.9cm; min-height: 29.69cm;" @endif>
       <div  class=".module-inside flex-col justify-around">
         @if($entete)
-        {{--<header class="grid grid-cols-12 gap-3">
-          <div class="col-span-3  place-self-center">
-            <div class="flex justify-center">
-              <img src="{{asset('assets/logo/icon3.png')}}" data-logo class="h-16" >
-            </div>
-          </div>
-          <div class="col-span-9 flex-col justify-center">
-              <div>
-                <div class="flex justify-center">
-                  <img src="{{asset('assets/logo-ecole/logo1.png')}}" class="h-8">
-                </div>
-
-                <div class="text-center text-xs">
-                  <span class="whitespace-nowrap" data-programme >{{$parametres_generaux->programme}}</span>
-                </div>
-                <div class=" flex justify-center">
-                  <div class="text-center text-xs">
-                    <span class="whitespace-nowrap mx-2" data-postal >{{$parametres_generaux->poste}} - {{$parametres_generaux->ville}}</span>
-                    <span class="whitespace-nowrap mx-2" data-phones > Tel: {{$parametres_generaux->telephone1}} {{ ($parametres_generaux->telephone2)? ' / '.$parametres_generaux->telephone2 : '' }} </span>
-                    <span class="whitespace-nowrap mx-2" data-mail >Email: <a href="mailto:{{$parametres_generaux->email}}">{{$parametres_generaux->email}}</a></span>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </header>--}}
         <header wire:ignore class="grid grid-cols-12 gap-3">
           <div class="col-span-4  place-self-center">
             <div class="flex justify-center">
@@ -175,7 +152,7 @@
           <div class="uppercase underline text-xl font-bold whitespace-nowrap decoration-1 decoration-double underline-offset-4"> {{$titre}} </div>
         </div>
         @endif
-        @if( $entete  || $titre )
+        @if( $entete || $titre )
         <div class="w-full my-2 border-t border-slate-800/60 dark:border-darkmode-400 border-double"></div>
         @endif
 
@@ -186,29 +163,25 @@
               <tr class="border-primary">
                 <th>#</th>
                 @foreach($firstRow as $head)
-		  @if($head)
+		              @if($head)
                   	<th>{{$head}}</th>
-		  @endif
+		              @endif
                 @endforeach
                 <th>Doublons</th>
                 <th>Action</th>
               </tr>
             </thead>
-
-            @if($eleves)
-		{{debug($eleves)}}
+            @if($information)
             <tbody>
-              @foreach($eleves as $eleve)
+              @foreach($information as $eleve)
               <tr>
                 <td class="w-1 mx-1 whitespace-nowrap"> {{substr(str_repeat(0, 2).$loop->iteration,-2)}}  </td>
-                @foreach($eleve as $key => $inf)
-		  @if($key)
-                  	<td>{{$inf}}</td>
-		  @endif
+                @foreach($firstRow as $key)
+                  <td>{{$eleve[$key]}}</td>
                 @endforeach
+
                 <td>
                   @php
-
                     $c1 = $eleve['nom'];
                     $c2 = $eleve['prenoms'];
                     $c3 = $eleve['genre'];
@@ -217,19 +190,16 @@
                     $c3 = strtolower($c3);
                     $feminity = ( ($c3 == 'f') || ($c3 == 'w') );// check feminity
                     $c3 = (!$feminity) ? 'Masculin' : 'Feminin';
-                    $uni = array('nom' =>  $c1 ,'prenoms' => $c2 ,'genre' => $c3);
-                    $duplicate = App\Models\Eleve::where($uni)->get();
+                    $uni = array(
+                      'nom' =>  $c1 ,
+                      'prenoms' => $c2 ,
+                      'genre' => $c3,
+                      'examen_id' => $examen->id,
+                      'annee_academique_id' => $annee->id,
+                      );
+                    $duplicate = App\Models\ExamenBlanc\Registre::where($uni)->get();
                   @endphp
                   @if($duplicate->count())
-                    {{--@php
-                      $id_liste = $duplicate->pluck('id') ;
-                      debug('id_liste');
-                      debug($id_liste);
-                      $url = route('eleve.cartes.print',['cartePrintData' =>  [ 'cartes' => $id_liste->toArray() , 'annee_id' => $annee->id ] ]);
-                      debug('url');
-                      debug($url);
-                    @endphp
-                    --}}
                   <div class="flex items-center justify-center text-danger">
                     <a class="flex items-center text-danger" href="{{route('eleves')}}" target="_blank" >
                       <x-icon name="x" class="w-4 h-4 mr-2" /> {{$duplicate->count()}}
@@ -254,12 +224,44 @@
               @endforeach
             </tbody>
             @endif
-
           </table>
           @endif
         </main>
 
-        @if(($salle) && ($eleves))
+        @if($information && $etablissement)
+          <section class="my-4 p-2">
+              <div class="overflow-x-auto">
+                            <table class="table table-striped table-bordered mt-5">
+                                <thead>
+                                    <tr>
+                                        <th class="whitespace-nowrap">#</th>
+                                        <th class="whitespace-nowrap">Information</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Etablissement</td>
+                                        <td>
+                                          <a href="#" class="font-medium whitespace-nowrap">{{$etablissement['nom_etablissement']}}</a>
+                                          <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$etablissement['nom_etablissement_court']}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annee Academique</td>
+                                        <td>{{$annee->nom_annee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Responsable</td>
+                                        <td>
+                                          <a href="#" class="font-medium whitespace-nowrap">{{$etablissement['responsable']['nom']??''}}</a>
+                                          <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$etablissement['responsable']['phone']??''}}</div>
+                                          <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$etablissement['responsable']['email']??''}}</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+              </div>
+          </section>
           <section class="my-4 p-2 print:hidden">
             <div class="alert alert-primary show mb-2" role="alert">
               <div class="flex items-center">

@@ -140,7 +140,6 @@
                   </div>
                   <livewire:evaluation.examen-blanc.graphe.repartition-coefficient-matiere :examen="$examen" />
 
-
                   <div class="intro-y box col-span-12 lg:col-span-6">
                       <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
                           <h2 class="font-medium text-base mr-auto">Liste des Etablissements</h2>
@@ -151,12 +150,12 @@
                               <div class="dropdown-menu w-40">
                                   <ul class="dropdown-content">
                                       <li>
-                                          <a href="javascript:;" class="dropdown-item">All Files</a>
+                                          <a href="{{route('examen_blanc.import.eleve',$examen->id)}}" target="_blank" class="dropdown-item">Ajouter des Eleves</a>
                                       </li>
                                   </ul>
                               </div>
                           </div>
-                          <button class="btn btn-outline-secondary hidden sm:flex">All Files</button>
+                          <a href="{{route('examen_blanc.import.eleve',$examen->id)}}" target="_blank" class="btn btn-outline-secondary hidden sm:flex">Ajouter des Eleves</a>
                       </div>
                       <div class="p-5">
                           <div class="flex items-center">

@@ -16,4 +16,25 @@ class Etablissement extends Model
      * @var string
      */
     protected $table = 'examen_blanc__etablissements';
+
+    protected $fillable = [
+        'nom_etablissement',
+        'nom_etablissement_court',
+        'annee_academique_id',
+        'responsable',
+        'data',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'responsable' => 'array',
+        'data' => 'array',
+    ];
+
+
 }

@@ -84,6 +84,7 @@ class ShowExamenBlanc extends Component
 
     protected $listeners = [
         'listeMatiereExamenBlancChange' => '$refresh',
+        'listeEleveExamenBlancChange' => '$refresh',
     ];
 
     public function mount(Examen $examen){

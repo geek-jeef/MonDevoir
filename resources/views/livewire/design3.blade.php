@@ -157,6 +157,7 @@
                 </div>
             </div>
             <!-- END: Basic Table -->
+            
             <!-- BEGIN: Bordered Table -->
             <div class="intro-y box mt-5">
                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60">

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Evaluation\ExamenBlanc\ExamensBlanc;
 use App\Http\Livewire\Evaluation\ExamenBlanc\ShowExamenBlanc;
 
+use App\Http\Livewire\Evaluation\ExamenBlanc\Eleve\ImportEleve;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::middleware([
 
     Route::get('/examen-blanc',ExamensBlanc::class)->name('examen_blanc');
     Route::get('/examen-blanc/{examen}',ShowExamenBlanc::class)->name('examen_blanc.show');
+
+    Route::get('/registre/import/{examen}',ImportEleve::class)->name('examen_blanc.import.eleve');
 
     /*Route::get('/examens',Examens::class)->name('examens');
     Route::get('/examen/{examen}',ShowExamen::class)->name('examen.show');

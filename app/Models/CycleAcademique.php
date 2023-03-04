@@ -33,7 +33,6 @@ class CycleAcademique extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'data' => 'array',
-
     ];
 
     public function getAnnee()
@@ -45,6 +44,10 @@ class CycleAcademique extends Model
         return $this->belongsTo(AnneeAcademique::class, 'annee_academique_id' , 'id') ;
     }
     public function directeur()
+    {
+        return $this->belongsTo(Personnel::class,'directeur_id','id') ;
+    }
+    public function responsable()
     {
         return $this->belongsTo(Personnel::class,'directeur_id','id') ;
     }
