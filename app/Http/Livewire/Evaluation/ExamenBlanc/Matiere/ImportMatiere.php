@@ -82,7 +82,8 @@ class ImportMatiere extends Component
         }
         $this->emit('CloseModal','#modal-import-matiere-examen-blanc');
         $this->emit('confetti');
-        $this->emit('ExamenBlancShowRefresh');
+        $this->emit('listeMatiereExamenBlancChange');
+
         $this->notification()->send([
             'title'       => 'Matieres Enregistrées!',
             'description' => "La liste des Matieres a été Enregistrée avec succès",
@@ -121,7 +122,7 @@ class ImportMatiere extends Component
         }
         $this->emit('CloseModal','#modal-import-matiere-examen-blanc');
         $this->emit('confetti');
-        $this->emit('ExamenBlancShowRefresh');
+        $this->emit('listeMatiereExamenBlancChange');
         $this->notification()->send([
             'title'       => 'Matieres Enregistrées!',
             'description' => "La liste des Matieres a été Enregistrée avec succès",

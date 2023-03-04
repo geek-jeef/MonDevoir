@@ -80,8 +80,8 @@
                           </div>
                       </div>
                   </div>
-                  
-                  <div class="intro-y box col-span-12 lg:col-span-6">
+
+                  <div class="intro-y box col-span-12 sm:col-span-6 lg:col-span-8 mt-8">
                       <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
                           <h2 class="font-medium text-base mr-auto">Liste des Matieres</h2>
                           <div class="dropdown ml-auto sm:hidden">
@@ -101,7 +101,6 @@
                       <div class="p-5">
                           <div class="tab-content">
                               <div id="liste-matiere-blanc" class="tab-pane active" role="tabpanel" aria-labelledby="latest-tasks-new-tab">
-
                                 @forelse($examen->matieres as $matiere)
                                   <div class="flex items-center justify-between @if(!$loop->first)  mt-5  @endif  ">
                                       <div class="border-l-2 @if(!$matiere->active) border-danger dark:border-danger @else border-primary dark:border-primary @endif pl-4">
@@ -135,17 +134,16 @@
                                     </ul>
                                 </div>
                                 @endforelse
-                                
                               </div>
                           </div>
                       </div>
                   </div>
+                  <livewire:evaluation.examen-blanc.graphe.repartition-coefficient-matiere :examen="$examen" />
 
 
-                  <!-- BEGIN: Latest Uploads -->
                   <div class="intro-y box col-span-12 lg:col-span-6">
                       <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
-                          <h2 class="font-medium text-base mr-auto">Latest Uploads</h2>
+                          <h2 class="font-medium text-base mr-auto">Liste des Etablissements</h2>
                           <div class="dropdown ml-auto sm:hidden">
                               <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
                                   <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
@@ -247,9 +245,36 @@
                                   </div>
                               </div>
                           </div>
+                          <div class="flex items-center mt-5">
+                              <div class="file">
+                                  <a href="" class="w-12 file__icon file__icon--empty-directory"></a>
+                              </div>
+                              <div class="ml-4">
+                                  <a class="font-medium" href="">Resources</a>
+                                  <div class="text-slate-500 text-xs mt-0.5">0 KB</div>
+                              </div>
+                              <div class="dropdown ml-auto">
+                                  <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
+                                      <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
+                                  </a>
+                                  <div class="dropdown-menu w-40">
+                                      <ul class="dropdown-content">
+                                          <li>
+                                              <a href="" class="dropdown-item">
+                                                  <i data-feather="users" class="w-4 h-4 mr-2"></i> Share File
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="" class="dropdown-item">
+                                                  <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
                   </div>
-                  <!-- END: Latest Uploads -->
 
                   <!-- BEGIN: Work In Progress -->
                   <div class="intro-y box col-span-12 lg:col-span-6 mt-8">
@@ -337,7 +362,7 @@
                   </div>
                   <!-- END: Work In Progress -->
 
-                  <!-- BEGIN: Weekly Top Seller -->
+                  {{--<!-- BEGIN: Weekly Top Seller -->
                   <div class="col-span-12 sm:col-span-6 lg:col-span-3 mt-8">
                       <div class="intro-y flex items-center h-10">
                           <h2 class="text-lg font-medium truncate mr-5">Weekly Top Seller</h2>
@@ -364,36 +389,7 @@
                           </div>
                       </div>
                   </div>
-                  <!-- END: Weekly Top Seller -->
-
-                  <!-- BEGIN: Weekly Top Seller -->
-                  <div class="col-span-12 sm:col-span-6 lg:col-span-3 mt-8">
-                      <div class="intro-y flex items-center h-10">
-                          <h2 class="text-lg font-medium truncate mr-5">Weekly Top Seller</h2>
-                          <a href="" class="ml-auto text-primary truncate">Show More</a>
-                      </div>
-                      <div class="intro-y box p-5 mt-5">
-                          <canvas class="mt-3" id="report-pie-chart" height="300"></canvas>
-                          <div class="mt-8">
-                              <div class="flex items-center">
-                                  <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                                  <span class="truncate">17 - 30 Years old</span>
-                                  <span class="font-medium xl:ml-auto">62%</span>
-                              </div>
-                              <div class="flex items-center mt-4">
-                                  <div class="w-2 h-2 bg-pending rounded-full mr-3"></div>
-                                  <span class="truncate">31 - 50 Years old</span>
-                                  <span class="font-medium xl:ml-auto">33%</span>
-                              </div>
-                              <div class="flex items-center mt-4">
-                                  <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
-                                  <span class="truncate">>= 50 Years old</span>
-                                  <span class="font-medium xl:ml-auto">10%</span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <!-- END: Weekly Top Seller -->
+                  <!-- END: Weekly Top Seller -->--}}
 
                   <div class="col-span-12">
                       <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
@@ -666,6 +662,5 @@
       </div>
     </div>
   </div>
-
 
 </section>

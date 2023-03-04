@@ -173,6 +173,17 @@ window.colors = colors;
                     display: false,
                 },
                 cutoutPercentage: 80,
+                plugins: {
+                  datalabels: {
+                    display: true,
+                    align: 'bottom',
+                    backgroundColor: '#ccc',
+                    borderRadius: 3,
+                    font: {
+                      size: 14,
+                    },
+                  },
+                },
             },
         });
     }

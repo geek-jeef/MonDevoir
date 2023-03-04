@@ -69,7 +69,7 @@ class ShowExamenBlanc extends Component
         $matiere = Matiere::find($matiere_id);
         if($matiere){
             $matiere->delete();
-            $this->emit('ExamenBlancShowRefresh');
+            $this->emit('listeMatiereExamenBlancChange');
         }
     }
 
@@ -78,18 +78,16 @@ class ShowExamenBlanc extends Component
         if($matiere){
             $matiere->active = ! $matiere->active;
             $matiere->save();
-            $this->emit('ExamenBlancShowRefresh');
+            $this->emit('listeMatiereExamenBlancChange');
         }
     }
 
     protected $listeners = [
-        'ExamenBlancShowRefresh' => '$refresh',
+        'listeMatiereExamenBlancChange' => '$refresh',
     ];
 
     public function mount(Examen $examen){
 
-        debug('From import matiere');
-        debug($this->examen);
     }
 
 
