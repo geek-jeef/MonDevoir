@@ -13,16 +13,14 @@ use App\Models\Matiere as ClasseMatiere ;
 
 use Illuminate\Validation\Rule;
 use WireUi\Traits\Actions;
-use Spatie\MediaLibraryPro\Http\Livewire\Concerns\WithMedia;
-//use Livewire\WithFileUploads;
+use Livewire\WithFileUploads;
 
 
 class ImportMatiere extends Component
 {
 
     use Actions;
-    use WithMedia;
-    //use WithFileUploads;
+    use WithFileUploads;
 
     public $examen;
 
@@ -37,7 +35,7 @@ class ImportMatiere extends Component
     protected function rules()
     {
         return [
-            'media' => '"mimes:xlsx,csv,tsv,ods,xls,slk,xml,gnumeric,html|max:4096"',
+            'media' => 'required|mimes:xlsx,csv,tsv,ods,xls,slk,xml,gnumeric,html|max:4096',
         ];
     }
 
@@ -45,26 +43,51 @@ class ImportMatiere extends Component
 
     public function createFromExcel(){
 
-        //$base_collection = \Excel::toCollection(collect([]), $this->media);
+        $this->validate();
 
-        //dump($base_collection);
-        
-        /*$base_collection = $base_collection->collapse();
-        $this->firstRow = $base_collection->first();
-        $base_collection = $base_collection->skip(1);
-
-        $combined = collect([]);
-
-        foreach ($base_collection as $eleve) {
-            $combined->push($this->firstRow->combine($eleve));
+        $classeur = \Excel::toCollection(collect([]), $this->media);
+        $feuille = $classeur->first();
+        $header = $feuille->first();
+        $feuille = $feuille->skip(1);
+        $matieres = collect([]);
+        foreach($feuille as $row) {
+            if($row->first()){
+                $matieres->push($header->combine($row));
+            }
         }
-        $this->eleves = $combined;*/
 
+        $nominationType = collect( 
+            array(
+                ['nom' => 'Principal',  'id' => 1],
+                ['nom' => 'Facultatif', 'id' => 2],
+                ['nom' => 'Au choix',   'id' => 3],
+            )
+        );
 
-
-        debug($this->media);
-        //dd('END');
-        //$this->clearMedia();
+        foreach ($matieres as $matiere) {
+            $newMatiere = Matiere::firstOrNew(
+                [
+                    'nom_matiere' => $matiere['nom_matiere'],
+                    'coeficient' => $matiere['coeficient'],
+                    'examen_id' => $this->examen->id,
+                ],
+                [
+                    'nom_matiere_court' => $matiere['nom_matiere_court'],
+                    'code' => $matiere['code'],
+                    'type' => ($matiere['type']) ? $nominationType->firstWhere('nom',$matiere['type'])['id']  : 1 ,
+                    'active' => true,
+                ]
+            );
+            $newMatiere->save();
+        }
+        $this->emit('CloseModal','#modal-import-matiere-examen-blanc');
+        $this->emit('confetti');
+        $this->emit('ExamenBlancShowRefresh');
+        $this->notification()->send([
+            'title'       => 'Matieres Enregistrées!',
+            'description' => "La liste des Matieres a été Enregistrée avec succès",
+            'icon'        => 'success'
+        ]);
     }
 
 
