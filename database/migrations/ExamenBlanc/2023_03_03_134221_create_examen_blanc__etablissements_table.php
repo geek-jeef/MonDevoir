@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom_etablissement');
             $table->string('nom_etablissement_court');
+            $table->unsignedInteger('examen_id');
             $table->unsignedInteger('annee_academique_id');
             $table->json('responsable')->nullable();
             $table->json('data')->nullable();

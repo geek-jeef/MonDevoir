@@ -50,6 +50,7 @@ class ImportEleve extends Component
 
     public function mount(Examen $examen){
         $this->annee = $this->examen->annee;
+        $this->titre = 'Importer des eleves - '.$this->examen->nom_examen ;
     }
     
 
@@ -166,42 +167,99 @@ class ImportEleve extends Component
 
     public function importFromExcel()
     {
-        ini_set('memory_limit', '128M');
 
         $this->validate([
             'excel_file' => 'required|mimes:xlsx,csv,tsv,ods,xls,slk,xml,gnumeric,html|max:4096',
         ]);
-        dump($this->excel_file);
 
-        $classeur = \Excel::toCollection(collect([]), $this->excel_file);
-        dd($classeur);
-
-        $feuille = $classeur->first();
-        $header = $feuille->first();
-        $feuille = $feuille->skip(1);
-        $eleves = collect([]);
-        dump($feuille);
-
-        /*foreach($feuille as $row) {
-            if($row->first()){
-                $eleves->push($header->combine($row));
-            }
-        }*/
-
-        dd($eleves);
-
-        /*$base_collection = $base_collection->collapse();
-        $this->firstRow = $base_collection->first();
-        $base_collection = $base_collection->skip(1);
-
-
-        $combined = collect([]);
-
-        foreach ($base_collection as $eleve) {
-            $combined->push($this->firstRow->combine($eleve));
+        $fichier = false;
+        try {
+            $classeur = \Excel::toCollection(collect([]), $this->excel_file);
+            $feuille = $classeur->first();
+            $header = $feuille->first();
+            $feuille = $feuille->skip(1);
+            $fichier = true;
+        } catch (Exception $e) {
+            $fichier = false;
         }
 
-        $this->eleves = $combined;*/
+        $validity = false;
+        if($fichier){
+            $validity = true;
+            $correct = ["nom","prenoms","genre","date_de_naissance","lieu_de_naissance","data.salle","nom_etablissement","nom_etablissement_court","responsable.nom","responsable.email","responsable.phone"] ;
+            foreach($correct as $criteria){
+                $validity = ($validity) && ( $header->contains($criteria) ) ;
+            }
+        }
+        if($validity){
+            $collection = collect([]);
+            foreach($feuille as $row) {
+                if($row->first()){
+                    $entry = $header->combine($row)->forget([''])->undot();
+                    $entry['naissance'] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($entry['date_de_naissance'])->format('Y-m-d');
+                    $entry['date_de_naissance'] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($entry['date_de_naissance'])->format('d/m/Y');
+                    $entry['salle'] = $entry['data']['salle'] ?? '';
+                    $collection->push($entry);
+                }
+            }
+            $this->firstRow = [
+                'nom',
+                'prenoms',
+                'genre',
+                'date_de_naissance',
+                'lieu_de_naissance',
+                'nom_etablissement',
+                'salle'
+            ] ;
+
+            $this->information = $collection->sortBy([
+                ['nom_etablissement', 'asc'],
+                ['salle', 'asc'],
+                ['nom', 'asc'],
+                ['prenoms', 'asc'],
+                ['date_de_naissance', 'asc'],
+            ])->values()->all();
+
+            $unique = $collection->unique(function ($item) {
+                return  ( $item['nom_etablissement'] != null && (($item['responsable']['nom'])??null) != null ) 
+                     && ( $item['nom_etablissement'] != ''   && (($item['responsable']['nom'])??'') != '' ) 
+                     && ($item['nom_etablissement'].$item['responsable']['nom']);
+            });
+
+            if($unique->count() == 1){
+                $unique = $unique->first();
+                $ecole = $unique->except([
+                    'nom',
+                    'prenoms',
+                    'genre',
+                    'date_de_naissance',
+                    'naissance',
+                    'lieu_de_naissance',
+                    'salle',
+                    'data',
+                ]);
+                $ecole->put('annee_academique_id', $this->annee->id);
+                $parametres_generaux = new GeneralSettings;
+                $ecole->put('data', ['hote' => ((($parametres_generaux->nom_ecole == $ecole['nom_etablissement']) || ($parametres_generaux->nom_court_ecole == $ecole['nom_etablissement_court']) ) ? true : false)]);
+                $this->etablissement = $ecole->toArray();
+            }else{
+                $this->information = collect([]);
+                $this->firstRow = null;
+                $this->etablissement = null;
+                $this->dialog()->error(
+                    $title = 'Erreur !!!',
+                    $description = "Il semble avoir plusieurs etablissements dans ce fichier, faites un fichier pour chaque etablissement et reessayer "
+                );
+            }
+            return ;
+        }
+        $this->information = collect([]);
+        $this->firstRow = null;
+        $this->etablissement = null;
+        $this->dialog()->error(
+            $title = 'Information du fichier incorrecte!',
+            $description = "Veuillez utiliser le modele disponible"
+        );
     }
     
 
@@ -226,6 +284,7 @@ class ImportEleve extends Component
                 'nom_etablissement' => $this->etablissement['nom_etablissement'],
                 'nom_etablissement_court' => $this->etablissement['nom_etablissement_court'],
                 'annee_academique_id' => $this->etablissement['annee_academique_id'],
+                'examen_id' => $this->examen->id,
             ],
             [
                 'responsable' => $this->etablissement['responsable'] ?? null,
@@ -261,6 +320,10 @@ class ImportEleve extends Component
             'description' => "La liste des Candidats a été Enregistrée avec succès",
             'icon'        => 'success'
         ]);
+    }
+
+    public function downloadModele(){
+        return response()->download(public_path('dist/fichier/Registre Eleves - Examen Blanc.xlsx'));
     }
 
     public function render()

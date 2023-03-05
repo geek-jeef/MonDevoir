@@ -21,6 +21,7 @@ class Etablissement extends Model
         'nom_etablissement',
         'nom_etablissement_court',
         'annee_academique_id',
+        'examen_id',
         'responsable',
         'data',
     ];
@@ -35,6 +36,18 @@ class Etablissement extends Model
         'responsable' => 'array',
         'data' => 'array',
     ];
+
+    public function effectif(){
+        return count(Registre::where('etablissement_id',$this->id)->get());
+    }
+
+
+    public function getEffectifAttribute(){
+        return $this->effectif() ;
+    }
+
+
+
 
 
 }

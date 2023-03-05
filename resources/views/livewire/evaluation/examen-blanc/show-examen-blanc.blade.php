@@ -138,142 +138,74 @@
                           </div>
                       </div>
                   </div>
+
                   <livewire:evaluation.examen-blanc.graphe.repartition-coefficient-matiere :examen="$examen" />
 
-                  <div class="intro-y box col-span-12 lg:col-span-6">
-                      <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
-                          <h2 class="font-medium text-base mr-auto">Liste des Etablissements</h2>
-                          <div class="dropdown ml-auto sm:hidden">
-                              <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
-                                  <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
+                  <div class="col-span-12 lg:col-span-8 mt-8">
+                      <div class="intro-y block sm:flex items-center h-10">
+                          <h2 class="text-lg font-medium truncate mr-5">Liste des Etablissements</h2>
+                          <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
+                              {{--
+                              <button  wire:click="response()->download(public_path('dist/fichier/Registre Eleves - Examen Blanc.xlsx'))" class="btn box flex items-center text-slate-600 dark:text-slate-300">
+                                  Modèle Excel <x-icon class="w-4 h-4 cursor-pointer ml-2" name="download" />
+                              </button>
+                              --}}
+                              <a href="{{route('examen_blanc.import.eleve',$examen->id)}}" target="_blank" class="ml-3 btn box flex items-center text-slate-600 dark:text-slate-300">
+                                  Ajouter des Eleves <x-icon class="w-4 h-4 cursor-pointer ml-2" name="link" />
                               </a>
-                              <div class="dropdown-menu w-40">
-                                  <ul class="dropdown-content">
-                                      <li>
-                                          <a href="{{route('examen_blanc.import.eleve',$examen->id)}}" target="_blank" class="dropdown-item">Ajouter des Eleves</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <a href="{{route('examen_blanc.import.eleve',$examen->id)}}" target="_blank" class="btn btn-outline-secondary hidden sm:flex">Ajouter des Eleves</a>
-                      </div>
-                      <div class="p-5">
-                          <div class="flex items-center">
-                              <div class="file">
-                                  <a href="" class="w-12 file__icon file__icon--directory"></a>
-                              </div>
-                              <div class="ml-4">
-                                  <a class="font-medium" href="">Documentation</a>
-                                  <div class="text-slate-500 text-xs mt-0.5">40 KB</div>
-                              </div>
-                              <div class="dropdown ml-auto">
-                                  <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
-                                      <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
-                                  </a>
-                                  <div class="dropdown-menu w-40">
-                                      <ul class="dropdown-content">
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="users" class="w-4 h-4 mr-2"></i> Share File
-                                              </a>
-                                          </li>
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="flex items-center mt-5">
-                              <div class="file">
-                                  <a href="" class="w-12 file__icon file__icon--file">
-                                      <div class="file__icon__file-name text-xs">MP3</div>
-                                  </a>
-                              </div>
-                              <div class="ml-4">
-                                  <a class="font-medium" href="">Celine Dion - Ashes</a>
-                                  <div class="text-slate-500 text-xs mt-0.5">40 KB</div>
-                              </div>
-                              <div class="dropdown ml-auto">
-                                  <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
-                                      <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
-                                  </a>
-                                  <div class="dropdown-menu w-40">
-                                      <ul class="dropdown-content">
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="users" class="w-4 h-4 mr-2"></i> Share File
-                                              </a>
-                                          </li>
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="flex items-center mt-5">
-                              <div class="file">
-                                  <a href="" class="w-12 file__icon file__icon--empty-directory"></a>
-                              </div>
-                              <div class="ml-4">
-                                  <a class="font-medium" href="">Resources</a>
-                                  <div class="text-slate-500 text-xs mt-0.5">0 KB</div>
-                              </div>
-                              <div class="dropdown ml-auto">
-                                  <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
-                                      <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
-                                  </a>
-                                  <div class="dropdown-menu w-40">
-                                      <ul class="dropdown-content">
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="users" class="w-4 h-4 mr-2"></i> Share File
-                                              </a>
-                                          </li>
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="flex items-center mt-5">
-                              <div class="file">
-                                  <a href="" class="w-12 file__icon file__icon--empty-directory"></a>
-                              </div>
-                              <div class="ml-4">
-                                  <a class="font-medium" href="">Resources</a>
-                                  <div class="text-slate-500 text-xs mt-0.5">0 KB</div>
-                              </div>
-                              <div class="dropdown ml-auto">
-                                  <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
-                                      <i data-feather="more-horizontal" class="w-5 h-5 text-slate-500"></i>
-                                  </a>
-                                  <div class="dropdown-menu w-40">
-                                      <ul class="dropdown-content">
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="users" class="w-4 h-4 mr-2"></i> Share File
-                                              </a>
-                                          </li>
-                                          <li>
-                                              <a href="" class="dropdown-item">
-                                                  <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
+                              
                           </div>
                       </div>
+                      @if($examen->etablissements)
+                      <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                          <table class="table table-report sm:mt-2">
+                              <thead>
+                                  <tr>
+                                      <th class="whitespace-nowrap">Etablissement</th>
+                                      <th class="whitespace-nowrap">Responsable</th>
+                                      <th class="text-center whitespace-nowrap">Eleves Inscrits</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  @foreach($examen->etablissements as $ecole)
+                                      <tr class="intro-x">
+                                          <td>
+                                              <div href="" class="font-medium whitespace-nowrap">{{ $ecole->nom_etablissement_court}}</div>
+                                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{ $ecole->nom_etablissement}}</div>
+                                          </td>
+                                          <td class="">
+                                              <a href="#" class="font-medium whitespace-nowrap">{{$ecole['responsable']['nom']??''}}</a>
+                                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">
+                                                  <span class="mr-2">
+                                                      <x-icon class="w-4 h-4 inline mr-1" name="phone" />{{$ecole['responsable']['phone']??''}}  
+                                                  </span>
+                                                  <span class="ml-2">
+                                                      <x-icon class="w-4 h-4 inline mr-1" name="mail" />  {{$ecole['responsable']['email']??''}}
+                                                  </span>
+                                              </div>
+                                          </td>
+                                          <td class="text-center font-medium">{{ $ecole->effectif}}</td>
+                                      </tr>
+                                  @endforeach
+                              </tbody>
+                          </table>
+                      </div>
+                      @else
+                      <div class="p-8">
+                          <ul class="nav nav-boxed-tabs justify-center flex-col sm:flex-row" role="tablist">
+                              <li id="top-products-laravel-tab" class="nav-item" role="presentation">
+                                  <a href="javascript:;" class="nav-link text-center w-full sm:w-64 mb-2 sm:mb-0 sm:mx-2 py-2 px-0 active" data-tw-target="#top-products-laravel" aria-controls="top-products-laravel" aria-selected="true" role="tab">
+                                      <x-icon  class="block w-24 h-24 mb-2 mx-auto cursor-pointer" name="x" outline />
+                                      Aucune Ecole Enregistrée
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                      @endif
                   </div>
+
+                  <livewire:evaluation.examen-blanc.graphe.repartition-eleve :examen="$examen" />
+
 
                   <!-- BEGIN: Work In Progress -->
                   <div class="intro-y box col-span-12 lg:col-span-6 mt-8">

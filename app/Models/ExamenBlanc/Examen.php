@@ -42,7 +42,11 @@ class Examen extends Model
     public function matieres()
     {
         return  $this->hasMany(Matiere::class,'examen_id');
+    }
 
+    public function etablissements()
+    {
+        return  $this->hasMany(Etablissement::class,'examen_id');
     }
 
 }

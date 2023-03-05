@@ -28,6 +28,65 @@
       .table[no-border] td {
           border-bottom-width: 0;
       }
+.fileUploadInput {
+  display: grid;
+  grid-gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+.fileUploadInput label {
+    display: flex;
+    align-items: center;
+    transition: .4s ease;
+    font-family: arial, sans-serif;
+    font-size: .75em;
+}
+
+.fileUploadInput input {
+    position: relative;
+    z-index: 1;
+    padding: 0 5px;
+    width: 100%;
+    height: 38px;
+    border: 1px solid rgb(var(--color-primary)/var(--tw-bg-opacity));
+    border-radius: 3px;
+    font-family: arial, sans-serif;
+    font-size: 1rem;
+    font-weight: regular; 
+  }
+  .fileUploadInput input[type="file"] {
+      padding: 0 5px; 
+  }
+  .fileUploadInput input[type="file"]::-webkit-file-upload-button {
+        visibility: hidden;
+        margin-left: 10px;
+        padding: 0;
+        height: 38px;
+        width: 0px;
+  }
+
+  .fileUploadInput button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 38px;
+    width: 38px;
+    line-height: 0;
+    user-select: none;
+    color: white;
+    background-color: rgb(var(--color-primary)/var(--tw-bg-opacity));
+    border-radius: 0 3px 3px 0;
+    font-family: arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  @-moz-document url-prefix() {
+    .fileUploadInput button {
+      display: none; 
+    } 
+  }
+
   </style>
 
   <div class="wrapper print:hidden print:invisible print:m-0 print:p-0">
@@ -37,15 +96,15 @@
           <livewire:widget.picker.cycle-classe-salle-picker   eventToFired="getDataFromSalle" />
         </div>
         <div class="self-end ">
-          <form action="#" wire:submit.prevent="importFromExcel" class="flex gap-2" x-data="{ files: null }">
+          <form action="#" wire:submit.prevent="importFromExcel" class="flex gap-2">
             <div class="self-end flex">
-              <button type="reset" @click="files = null" class="btn btn-sm bg-gray-300 text-gray-800 rounded self-end mr-2	">Reset</button>
-              <div>
-                <label class="bg-white dark:bg-dark border-2 border-gray-200 p-3  w-92 block rounded cursor-pointer mr-2" for="customFile2">
-                  <input type="file" wire:model.defer="excel_file" class="sr-only" id="customFile2" x-on:change="files = Object.values($event.target.files)">
-                  <span x-text="files ? files.map(file => file.name).join(', ') : 'Choisir un fichier | XLSX, CSV, TSV, ODS | &lt; 4.00MB'"></span>
-                </label>
+              <div class="mr-2">
                 <x-errors class="mt-3"/>
+                <div class="fileUploadInput">
+                  <label>✨ Choisir un fichier | XLSX, CSV, TSV, ODS | &lt; 4.00MB</label>
+                  <input wire:model.defer="excel_file" class="btn btn-primary-soft" type="file"/>
+                  <button>+</button>
+                </div>
               </div>
               <button class="btn btn-primary self-end" type="submit" >Importer</button>
             </div>
@@ -54,7 +113,11 @@
 
         <div class="self-end">
           <div class="intro-y flex flex-col-reverse sm:flex-row items-center">
-              <div class="inbox-filter dropdown .absolute inset-y-0 mr-3 right-0 flex items-center" data-tw-placement="bottom-start">
+            <a href="#" wire:click="downloadModele()" class="btn btn-primary mr-3">
+              Modèle <x-icon class="w-4 h-4 cursor-pointer ml-2" name="download" />
+            </a>
+
+              <div class="inbox-filter dropdown .absolute inset-y-0 right-0 flex items-center" data-tw-placement="bottom-start">
                 <button class="btn btn-primary" role="button" aria-expanded="false" data-tw-toggle="dropdown" >
                   Options <x-icon class="dropdown-toggle w-4 h-4 cursor-pointer ml-2" name="cog" />
                 </button>
