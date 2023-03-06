@@ -4,6 +4,7 @@ namespace App\Models\ExamenBlanc;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AnneeAcademique;
 
 class Registre extends Model
 {
@@ -56,9 +57,20 @@ class Registre extends Model
         'date_de_naissance' => 'date:Y-m-d',
         'data' => 'array',
     ];
-
+    
     public function getNaissanceAttribute()
     {
         return date('d/m/Y', strtotime($this->date_de_naissance));  
     }
+
+    public function etablissement()
+    {
+        return $this->belongsTo(Etablissement::class, 'etablissement_id' ,'id');
+    }
+
+    public function annee()
+    {
+        return $this->belongsTo(AnneeAcademique::class, 'annee_academique_id' ,'id');
+    }
+    
 }

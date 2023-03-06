@@ -11,7 +11,6 @@ class RepartitionEleve extends Component
 {
     public $examen ;
     public function mount(Examen $examen){
-
     }
 
     protected $listeners = [

@@ -102,6 +102,7 @@ class ImportEleve extends Component
                 ['prenoms', 'asc'],
                 ['date_de_naissance', 'asc'],
             ])->values()->all();
+            
             $this->firstRow = [
                 'nom',
                 'prenoms',
