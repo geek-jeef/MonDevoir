@@ -8,11 +8,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class Collection implements FromCollection, WithStyles
 {
-    protected $data;
+    protected $info;
     
-    public function __construct($data)
+    public function __construct($info)
     {
-        $this->data = $data;
+        $this->info = $info;
     }
 
     /**
@@ -20,15 +20,12 @@ class Collection implements FromCollection, WithStyles
     */
     public function collection()
     {
-        return $this->data;
+        return $this->info['data'] ?? collect([]);
     }
-
 
     public function styles(Worksheet $sheet)
     {
-        return [
-            1    => ['font' => ['bold' => true]],
-        ];
+        return $this->info['styles'] ?? [];
     }
 
 }

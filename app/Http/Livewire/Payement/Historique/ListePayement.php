@@ -100,7 +100,10 @@ class ListePayement extends Component
 
         $source->prepend($header);
 
-        return \Excel::download( new ExcelCollection($source), 'ListePayement.xlsx');
+
+        $export = ['data' => $source];
+
+        return \Excel::download( new ExcelCollection($export), 'ListePayement.xlsx');
 
     }
 

@@ -57,6 +57,11 @@ class Registre extends Model
         'date_de_naissance' => 'date:Y-m-d',
         'data' => 'array',
     ];
+
+    public function getNomCompletAttribute()
+    {
+        return $this->nom." ".$this->prenoms;  
+    }
     
     public function getNaissanceAttribute()
     {

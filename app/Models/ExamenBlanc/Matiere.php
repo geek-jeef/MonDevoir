@@ -51,6 +51,29 @@ class Matiere extends Model
         return $this->getType();  
     }
 
+    public function examen()
+    {
+        return $this->belongsTo(Examen::class);
+    }
+
+    public function note($eleve_id)
+    {
+        return $this->morphOne(Note::class, 'notable')
+                    ->where('eleve_id',$eleve_id)
+                    ->get()
+                    ->last();
+    }
+
+    public function noteRempli(){
+        $data = [ 
+            'notable_id' => $this->id,
+            'notable_type' => $this::class,
+            'matiere_id' => $this->id,
+            'annee_academique_id' => $this->examen->annee_academique_id,
+        ] ;
+        return Note::where($data)->where('note','!=',null)->count() ;
+    }
+
 
 
 }

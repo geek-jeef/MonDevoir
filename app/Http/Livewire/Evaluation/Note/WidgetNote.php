@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Evaluation\Note;
 
 use Livewire\Component;
-use App\Models\Note;
+//use App\Models\Note;
 class WidgetNote extends Component
 {
-    public Note $note;
+    public $note;
 
     public function mount($note){
         $this->note = $note ;

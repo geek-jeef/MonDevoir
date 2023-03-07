@@ -38,6 +38,9 @@ class Examen extends Model
     }
 
 
+    public function effectif(){
+        return count(Registre::where('examen_id',$this->id)->get());
+    }
 
     public function matieres()
     {
@@ -47,6 +50,11 @@ class Examen extends Model
     public function etablissements()
     {
         return  $this->hasMany(Etablissement::class,'examen_id');
+    }
+
+    public function candidats()
+    {
+        return  $this->hasMany(Registre::class,'examen_id');
     }
 
 }

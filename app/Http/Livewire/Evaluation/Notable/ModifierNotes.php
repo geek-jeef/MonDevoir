@@ -16,9 +16,6 @@ class ModifierNotes extends Component
 {
     public $notable;
     public $titre;
-    //public Matiere $matiere;
-    //public Classe $classe;
-    //public $salle;
     public $eleves;
 
     public function mount($notable)

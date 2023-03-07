@@ -91,11 +91,9 @@ class ImportMatiere extends Component
         ]);
     }
 
-
     public function downloadModele(){
         return response()->download(public_path('dist/fichier/Liste matieres - Examen Blanc.xlsx'));
     }
-
 
     public function createFromClasse($data){
         $this->data = $data;
@@ -130,8 +128,6 @@ class ImportMatiere extends Component
         ]);
 
     }
-
-
 
     public function mount(Examen $examen){
         

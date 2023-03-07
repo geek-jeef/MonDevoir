@@ -165,23 +165,32 @@ Route::get('action1', function () {
         $MesClasses = \App\Models\Classe::where('cycle_academique_id',2)->get();
         foreach ($MesClasses as $classe) {
             foreach ($ListeMatiere[$classe->id] as $matiere => $data) {
-                \App\Models\Matiere::create([
-                    'nom_matiere' => $matiere,
-                    'nom_matiere_court' => $data['court'],
-                    'code' => null,
-                    'coeficient' => $data['coeficient'],
-                    'type' => $data['type'],
-                    'classe_id' => $classe->id,
-                    //'enseignant_id' => \App\Models\Enseignant::inRandomOrder()->first()->id,
-                    'active' => true,
-                ]);
+                \App\Models\Matiere::updateOrCreate([
+                  'nom_matiere' => $matiere,
+                  'nom_matiere_court' => $data['court'],
+                  //'code' => null,
+                  //'coeficient' => $data['coeficient'],
+                  //'type' => $data['type'],
+                  'classe_id' => $classe->id,
+                  'active' => true,
+                ],
+                [
+                  //'nom_matiere' => $matiere,
+                  //'nom_matiere_court' => $data['court'],
+                  'code' => null,
+                  'coeficient' => $data['coeficient'],
+                  'type' => $data['type'],
+                  //'classe_id' => $classe->id,
+                  //'active' => true,
+                ]
+              );
             }
         }
 
         return $MesClasses;
 });
 
-Route::get('action2', function () {
+/*Route::get('action2', function () {
         $ListeMatiere = array(
             '9' => array( //6eme
                 'Français' => array('court' => 'Français' , 'type' => 1 , 'coeficient' => 2) ,
@@ -251,11 +260,11 @@ Route::get('action2', function () {
 
         return $MesClasses;
 });
-
+*/
 
 Route::get('action3', function () {
 
-    $MesClasses = \App\Models\Classe::where('cycle_academique_id',2)->get();
+    $MesClasses = \App\Models\Classe::where('id',12)->get();
     $periode = \App\Models\Periode::find(1);
     $annee = \App\Models\AnneeAcademique::find(1);
 
@@ -286,30 +295,30 @@ Route::get('action3', function () {
             
               $devoir = \App\Models\Devoir::firstOrCreate([
                 'nom_devoir' => 'Devoir 1 '.$matiere->nom_matiere_court.' '.$periode->nom_periode,
-                'ponderation' => 25,
+                'ponderation' => 50,
                 'matiere_id' => $matiere->id,
                 'salle_id' => $salle->id,
                 'classe_id' => $classe->id, 
                 'annee_academique_id' => $annee->id, 
               ]);
 
-              $devoir2 = \App\Models\Devoir::firstOrCreate([
+              /*$devoir2 = \App\Models\Devoir::firstOrCreate([
                 'nom_devoir' => 'Devoir 2 '.$matiere->nom_matiere_court.' '.$periode->nom_periode,
                 'ponderation' => 25,
                 'matiere_id' => $matiere->id,
                 'salle_id' => $salle->id,
                 'classe_id' => $classe->id, 
                 'annee_academique_id' => $annee->id, 
-              ]);
+              ]);*/
 
 
-          $notables = [ $devoir, $devoir2 , $composition] ;
+          $notables = [ $devoir , $composition] ;
           foreach($notables as $notable) {
             echo PHP_EOL, 'notable : '. $notable->nom_notable;
 
             foreach($eleves as $eleve){
               $note = \App\Models\Note::firstOrCreate([
-                //'note' => rand(8,20) ,
+                'note' => rand(8,20) ,
                 'notable_id' => $notable->id,
                 'notable_type' => $notable::class,
                 'eleve_id' => $eleve->id,
@@ -323,8 +332,6 @@ Route::get('action3', function () {
         }
 
       }
-
-
     }
 
     return "Creation des devoirs de College - Fin" ;

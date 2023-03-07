@@ -2,7 +2,7 @@
   <div wire:ignore class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">Liste des Elèves</h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-      <button wire:click="loadData()" class="ml-auto flex items-center btn-primary">
+      <button wire:click="loadData()" class="ml-auto flex items-center">
         <x-icon name="refresh" class="hover:animate-spin w-4 h-4 mr-3" /> Actualiser
       </button>
     </div>
@@ -172,7 +172,7 @@
           printHeader: document.getElementById("header_for_print"), // set header content on printed table
           printFooter: document.getElementById("footer_for_print"), // set header content on printed table
           pagination: "local",
-          paginationSize: 50,
+          paginationSize: 20,
           paginationSizeSelector: [10, 20, 30 ,50, 70, 100,200],
           layout: "fitColumns",
           responsiveLayout: "collapse",

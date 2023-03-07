@@ -85,7 +85,6 @@ class ListeEleve extends Component
     }
 
     public function scopeEtablissement(){
-
         if($this->filtre_etablissement &&  $this->filtre_etablissement != "0"){
             $ecole = Etablissement::find($this->filtre_etablissement);
             if($ecole){
