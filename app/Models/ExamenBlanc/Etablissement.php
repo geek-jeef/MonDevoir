@@ -37,6 +37,11 @@ class Etablissement extends Model
         'data' => 'array',
     ];
 
+    public function examen()
+    {
+        return $this->belongsTo(Examen::class);
+    }
+
     public function effectif(){
         return count(Registre::where('etablissement_id',$this->id)->get());
     }
@@ -46,8 +51,26 @@ class Etablissement extends Model
         return $this->effectif() ;
     }
 
+    public function noteRempli(){
+        $data = [
+            'annee_academique_id' => $this->annee_academique_id,
+        ] ;
+        return Note::where($data)
+            ->whereIn('matiere_id',$this->examen->matieres->modelKeys())
+            ->where('note','!=',null)
+            ->count() ;
+    }
 
 
-
+    public function progression(){
+        $notes = (int) $this->noteRempli();
+        $effectif = $this->examen->effectif()  * $this->examen->matieres->count();
+        $percent = ($effectif != 0) ? ($notes *100) /( (float) $effectif ) : 0.0 ;
+        return array(
+            'notes' => $notes ,
+            'effectif' => $effectif ,
+            'percent' => round( $percent , 2) ,
+        );
+    }
 
 }

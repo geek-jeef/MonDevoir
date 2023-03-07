@@ -121,6 +121,12 @@ class EnregistrementNote extends Component
                         'argb' => '77ffff00',
                     ],
                 ],
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => [
+                        'argb' => 'ffffffff',
+                    ]
+                ]
             ],
         ];
 
@@ -191,6 +197,8 @@ class EnregistrementNote extends Component
             'description' => "La liste de Notes a été Enregistrée avec succès",
             'icon'        => 'success'
         ]);
+
+        return redirect(request()->header('Referer'));
     }
 
     public function save(){

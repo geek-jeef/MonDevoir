@@ -75,5 +75,17 @@ class Matiere extends Model
     }
 
 
+    public function progression(){
+        $notes = (int) $this->noteRempli();
+        $effectif = (int) $this->examen->effectif();
+        $percent = ($effectif != 0) ? ($notes *100)  /( (float) $effectif ) : 0.0 ;
+        return array(
+            'notes' => $notes ,
+            'effectif' => $effectif ,
+            'percent' => round( $percent , 2) ,
+        );
+    }
+
+
 
 }
