@@ -73,6 +73,16 @@ class Registre extends Model
         return $this->belongsTo(Etablissement::class, 'etablissement_id' ,'id');
     }
 
+    public function examen()
+    {
+        return $this->belongsTo(Examen::class, 'examen_id' ,'id');
+    }
+
+    public function notes()
+    {
+        return  $this->hasMany(Note::class,'eleve_id');
+    }
+
     public function annee()
     {
         return $this->belongsTo(AnneeAcademique::class, 'annee_academique_id' ,'id');

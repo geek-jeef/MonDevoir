@@ -10,6 +10,7 @@ use App\Http\Livewire\Evaluation\ExamenBlanc\Eleve\ImportEleve;
 
 
 use App\Http\Livewire\Evaluation\ExamenBlanc\Matiere\EnregistrementNote;
+use App\Http\Livewire\Evaluation\ExamenBlanc\Resultat\Resultats;
 
 
 
@@ -23,15 +24,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-
+    
     Route::get('/examen-blanc',ExamensBlanc::class)->name('examen_blanc');
     Route::get('/examen-blanc/{examen}',ShowExamenBlanc::class)->name('examen_blanc.show');
+    Route::get('/resultalt/examen-blanc/{examen}',Resultats::class)->name('examen_blanc.resultats');
     Route::get('/registre/import/{examen}',ImportEleve::class)->name('examen_blanc.import.eleve');
-    
     Route::get('/notes/matiere/{matiere}',EnregistrementNote::class)->name('examen_blanc.notes.matiere.edit');
-
-
-
 
     /*Route::get('/examens',Examens::class)->name('examens');
     Route::get('/examen/{examen}',ShowExamen::class)->name('examen.show');

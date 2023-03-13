@@ -21,8 +21,22 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mt-6 text-3xl font-medium leading-8">{percent()}%</div>
-                  <div class="mt-1 text-base text-slate-500">des Notes Enregistré</div>
+                  @php
+                    $examen_progression = $examen->progression();
+                  @endphp
+                  <div class="mt-6 flex items-center justify-center">
+                    <div class="text-right">
+                      <div class="text-3xl font-medium">{{ $examen_progression['notes'] }}</div>
+                      <div class="mt-1 truncate text-slate-500">Notes</div>
+                    </div>
+                    <div
+                      class="dark:border-darkmode-400 mx-4 h-16 w-px border border-r border-dashed border-slate-300 xl:mx-6">
+                    </div>
+                    <div>
+                      <div class="text-3xl font-medium">{{ $examen_progression['effectif'] }}</div>
+                      <div class="mt-1 truncate text-slate-500">Total</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -79,7 +93,6 @@
             </div>
           </div>
         </div>
-
         <div class="intro-y box col-span-12 mt-8 sm:col-span-6 lg:col-span-8">
           <div class="dark:border-darkmode-400 flex items-center border-b border-slate-200/60 px-5 py-5 sm:py-3">
             <h2 class="mr-auto text-base font-medium">Liste des Matieres</h2>
@@ -163,8 +176,6 @@
             </div>
           </div>
         </div>
-
-        {{--
         <livewire:evaluation.examen-blanc.graphe.repartition-coefficient-matiere :examen="$examen" />
         <div class="col-span-12 mt-8 lg:col-span-8">
           <div class="intro-y block h-10 items-center sm:flex">
@@ -234,19 +245,24 @@
             </div>
           @endif
         </div>
-
         <livewire:evaluation.examen-blanc.graphe.repartition-eleve :examen="$examen" />
         <livewire:evaluation.examen-blanc.vue.liste-eleve :examen="$examen" />
-        <livewire:evaluation.examen-blanc.vue.onglet-progression :examen="$examen" />--}}
+        <livewire:evaluation.examen-blanc.vue.onglet-progression :examen="$examen" />
 
-        <livewire:evaluation.examen-blanc.resultat.rapports :examen="$examen" />
-
-        {{--<livewire:evaluation.examen-blanc.resultat.diagrammes :examen="$examen" />--}}
-
+        <div class="col-span-12 box bg-primary intro-y relative overflow-hidden p-8">
+          <div class="-mt-3 w-full text-xl leading-[2.15rem] text-white sm:w-72">Resultats</div>
+          <div class="mt-3 w-full leading-relaxed text-white/70 dark:text-slate-500 sm:w-72">
+            {{ $examen_progression['percent'] }}% des notes ont été
+            enregistrées.</div>
+          <a href="{{ route('examen_blanc.resultats', $examen->id) }}" target="_blank"
+            class="btn dark:bg-darkmode-800 mt-6 w-72 bg-white dark:text-white sm:mt-10">Afficher les resultats</a>
+          <img class="absolute top-0 right-3 mr-2 hidden h-full sm:block" alt=""
+            src="{{ asset('dist/images/woman-illustration.svg') }}">
+        </div>
       </div>
     </div>
   </div>
-
+  </div>
 
   <div id="modal-import-matiere-examen-blanc" class="modal" data-tw-backdrop="static" tabindex="-1"
     aria-hidden="true">

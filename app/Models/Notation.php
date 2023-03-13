@@ -75,12 +75,10 @@ class Notation extends Model
     }
 
     public static function moyenneDevoir($eleve_id , $matiere_id , $examen_id){
-
         return Notation::moyenneNotable(Devoir::class, $eleve_id , $matiere_id , $examen_id);
     }
 
     public static function moyenneComposition($eleve_id , $matiere_id , $examen_id){
-        
         return Notation::moyenneNotable(Composition::class, $eleve_id , $matiere_id , $examen_id);
     }
 

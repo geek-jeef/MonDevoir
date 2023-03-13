@@ -89,4 +89,10 @@ class Helper
         return $clean_file_name; 
     }
 
+    public static function formatNomMatiere($name){
+        $index = str_replace(".", "",  $name);
+        $index = str_replace("|", "",  $index);
+        return $index;
+    }
+
 }
